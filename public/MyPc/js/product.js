@@ -56,7 +56,7 @@ $(function () {
         $('#dropdownText').text(txt)
         var id = $(this).data('id')
         $('[name="brandId"]').val(id)
-
+        // $('#form').data("bootstrapValidator").updateStatus("brandId", "VALID");
         $('#form').data('bootstrapValidator').updateStatus('brandId', 'VALID')
     })
 
@@ -76,12 +76,12 @@ $(function () {
             }
 
             if (picArr.length == 3) {
-                $('#form').data('bootstarpValidator').updateStatus('picStatus', 'VALID')
+                $('#form').data('bootstrapValidator').updateStatus('picStatus', 'VALID')
 
             }
         }
     })
-
+   
     $('#form').bootstrapValidator({
         // 配置排除项, 对隐藏域也进行校验
         excluded: [],
@@ -169,6 +169,7 @@ $(function () {
       });
 
       $('#form').on('success.form.bv',function(e){
+        console.log(1)
           e.preventDefault()
             // 获取所有表单数据
           var paramsStr = $('#form').serialize()
@@ -181,7 +182,7 @@ $(function () {
               dataType:'json',
               success:function(info){
                   if(info.success){
-                      $('#addModal').modal('hide')
+                      $('#addproduct').modal('hide')
                       currentPage = 1
                       render()
                       

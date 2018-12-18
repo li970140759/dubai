@@ -67,8 +67,8 @@ $(function(){
         }
     
       });
-
       $('#form').on('success.form.bv',function(e){
+        console.log(1)
           e.preventDefault();
           $.ajax({
               type:'post',
@@ -77,6 +77,7 @@ $(function(){
               dataType:'json',
               success:function( info ){
                   if( info.success){
+                    // console.log(1)
                       $('#addModal').modal('hide')
                       currentPage = 1
                       render()
